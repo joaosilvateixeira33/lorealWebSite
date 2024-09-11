@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+$font_geral: 'Kodchasan', sans-serif;
+$brand_1:#EFEEF3;
+
+@mixin flexbox {
+  display: flex;
+}
+
+@mixin sizeImage {
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font_geral;
+}
+
+body {
+  background-color: $brand_1;
+}
+
+header {
+  padding: 10px;
+  @include flexbox();
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    ul {
+      @include flexbox();
+      list-style: none;
+      font-size: 20px;
+      gap: 24px;
+    }
+  }
+}
+
+main {
+  .banner_section {
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .details_section {
+    padding: 40px;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+
+    .our_products {
+      @include flexbox();
+      align-items: center;
+      gap: 3.125rem;
+
+      .details {
+        text-align: center;
+        width: 44vw;
+
+        h2 {
+          font-weight: 400;
+          padding-bottom: 20px;
+          font-size: 2.25rem;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .new_product {
+      @include flexbox();
+      align-items: center;
+      gap: 15rem;
+
+      h2 {
+        font-weight: 400;
+        font-size: 1.875rem;
+        width: 29vw;
+      }
+
+      .ilustration_products {
+        @include flexbox();
+        gap: 70px;
+      }
+    }
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+
+  main {
+    .banner_section {
+      display: none;
+    }
+
+    .details_section {
+      padding: 20px;
+
+      .our_products {
+        flex-direction: column;
+        gap: 1.5rem;
+
+        img{
+            width: 90%;
+        }
+
+        .details {
+          width: 90vw;
+
+          h2 {
+            font-size: 1.5rem;
+          }
+
+          p {
+            font-size: 1.25rem;
+          }
+        }
+      }
+
+      .new_product {
+        flex-direction: column;
+        gap: 2rem;
+
+        h2 {
+          width: 90vw;
+          font-size: 20px;
+          padding: 10px;
+          text-align: center;
+        }
+
+        .ilustration_products {
+            flex-wrap: wrap;
+            gap: 70px;
+            justify-content: center;
+        }
+      }
+    }
+  }
+}
